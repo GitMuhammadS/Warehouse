@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ShipmentType Edit</title>
+<style type="text/css">
+	h3{
+		background-color: black;
+		color: white;
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+		<h3>WELCOME TO SHIPMENT TYPE EDIT PAGE</h3>
+		<form th:action="@{/st/update}" method="POST" th:object="${shipmentType}">
+			<table bgcolor="cyan" align="center">
+				<tr>
+					<td>SHIPMENT ID:</td>
+					<td><input type="text" th:field="*{id}" readonly/></td>
+				</tr>
+				
+				<tr>
+					<td>SHIPMENT MODE:</td>
+					<td>	<select th:field="*{shipmentMode}">
+									<option value="-1">SELECT</option>
+									<option value="AIR">AIR</option>
+									<option value="TRUCK">TRUCK</option>
+									<option value="SHIP">SHIP</option>
+									<option value="TRAIN">TRAIN</option>
+							  </select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>SHIPMENT CODE: </td>
+					<td><input type="text" th:field="*{shipmentCode}" readonly/></td>
+				</tr>
+				
+				<tr>
+					<td>ENABLE SHIPMENT:</td>
+					<td>
+						<input type="radio" th:field="*{enableShipment}" value="YES">YES
+				 		<input type="radio" th:field="*{enableShipment}" value="NO">NO
+					</td>
+				</tr>
+				
+				<tr>
+					<td>ENABLE GRADE:</td>
+					<td>
+						<input type="radio" th:field="*{shipmentGrade}" value="A">A
+						<input type="radio" th:field="*{shipmentGrade}" value="B">B
+					    <input type="radio" th:field="*{shipmentGrade}" value="C">C
+					</td>
+				</tr>
+				
+				<tr>
+					<td>DESCRIPTION:</td>
+					<td><textarea th:field="*{description}"></textarea></td>
+				</tr>
+				
+				<tr>
+					<td><input type="submit" value="UPDATE SHIPMENT"/></td>
+				</tr>
+			</table>
+		</form>
+</body>
+</html>

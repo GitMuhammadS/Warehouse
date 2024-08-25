@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Order Register</title>
+<style type="text/css">
+	h2{
+		background-color: black;
+		color: white;
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+		<form action="saveorder" method="post">
+		<h2>Order Type Register form</h2>
+			<table bgcolor="cyan" align="center">
+				<tr>
+					<td>
+						ORDER MODE:
+					</td>
+					<td>
+						<input type="radio" name="orderMode" value="SALE"/>SALE
+						<input type="radio" name="orderMode" value="PURCHASE"/>PURCHASE
+					</td>
+				</tr>
+				
+				<tr>
+					 <td>
+					 	ORDER CODE:
+					 </td>
+					 <td>
+					 	<input type="text" name="orderCode"/>
+					 </td>
+				</tr>
+				
+				<tr>
+					  <td>
+					  		ORDER METHOD:
+					  </td>
+					  <td>
+					  		<select name="orderType">
+					  			<option value="">-SELECT-</option>
+					  			<option value="FIFO">FIFO</option>
+					  			<option value="LIFO">LIFO</option>
+					  			<option value="FCFO">FCFO</option>
+					  			<option value="FEFO">FEFO</option>
+					  		</select>
+					  </td>
+				</tr>
+				
+				<tr>
+					<td>
+						ORDER ACCEPT:
+					</td>
+					<td>
+						<input type="checkbox" name="orderAcpt" value="MULTI-MODEL">MULTI-MODEL
+						<input type="checkbox" name="orderAcpt" value="ACCEPT-RETURN">ACCEPT-RETURN
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						DESCRIPTION:
+					</td>
+					<td>
+						<textarea rows="10" cols="10" name="description"></textarea>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<input type="submit" value="ADD_ORDER"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<h1 th:text="${message}"></h1>
+</body>
+</html>

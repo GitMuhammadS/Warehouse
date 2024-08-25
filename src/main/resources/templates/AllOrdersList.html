@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>All Orders List</title>
+<style type="text/css">
+	h2{
+		background-color: black;
+		color: white;
+		text-align: center;
+	}
+</style>
+</head>
+
+<body>
+	<h2>List of Order Details</h2>
+	<table bgcolor="cyan" align="center" border="1" cellspacing="0">
+		<tr>
+			<th>ORDER ID</th>
+			<th>ORDER MODE</th>
+			<th>ORDER CODE</th>
+			<th>ORDER TYPE</th>
+			<th>ORDER ACCEPT</th>
+			<th>DESCRIPTION</th>
+			<th>OPERATIONS</th>
+		</tr>
+		<tr th:each="order:${list}">
+			<td th:text="${order.id}"></td>
+			<td th:text="${order.orderMode}"></td>
+			<td th:text="${order.orderCode}"></td>
+			<td th:text="${order.orderType}"></td>
+			<td th:text="${order.orderAcpt}"></td>
+			<td th:text="${order.description}"></td>	
+			<td>
+				
+			</td>	
+		</tr>
+	</table>
+</body>
+</html>
